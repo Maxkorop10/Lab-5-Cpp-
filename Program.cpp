@@ -69,7 +69,7 @@ long long part_sum(int start_row, int end_row, int num_threads) {
 }
 
 void part_min(int start_row, int end_row, int num_threads, int& min_row, int& min_sum) {
-#pragma omp parallel for reduction(min:min_row,min_sum) num_threads(num_threads)
+#pragma omp parallel for num_threads(num_threads)
     for (int i = start_row; i < end_row; i++) {
         long long row_sum = 0;
         for (int j = 0; j < cols; j++) {
